@@ -20,18 +20,21 @@
                 <th>Descrizione</th>
                 <th>Foto</th>
                 <th>Prezzo</th>
+                <th>Azioni</th>
             </tr>
         </thead>
         <tbody>
-            
-            <tr th:each="pizza : ${pizze}">
-                <td th:text="${pizza.Id}">Id</td>
-                <td th:text="${pizza.nome}">Nome</td>
-                <td th:text="${pizza.descrizione}">Descrizione</td>
-                <td><img th:src="${pizza.fotoUrl}" width="100"/></td>
-                <td th:text="${pizza.prezzo} + ' Euro'">Prezzo</td>
-            </tr>
-        </tbody>
+    <tr th:each="pizza : ${pizze}">
+        <td th:text="${pizza.Id}">Id</td>
+        <td th:text="${pizza.nome}">Nome</td>
+        <td th:text="${pizza.descrizione}">Descrizione</td>
+        <td><img th:src="${pizza.fotoUrl}" width="100"/></td>
+        <td th:text="${pizza.prezzo} + ' Euro'">Prezzo</td>
+        <td>
+            <a th:href="@{'/pizze/' + ${pizza.id}}" class="btn btn-primary btn-sm">Dettagli</a>
+        </td>
+    </tr>
+</tbody>
     </table>
 </div>
 </body>

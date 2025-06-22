@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dettagli pizza</title>
+</head>
+
+<body>
+    <h1 th:text="${pizza.nome}">Nome</h1>
+    <p th:text="${pizza.descrizione}">Descrizione</p>
+    <p th:text="${pizza.prezzo} + ' Euro'">Prezzo</p>
+    <img th:src="${pizza.fotoUrl}" alt="Foto" />
+</body>
+</html>
