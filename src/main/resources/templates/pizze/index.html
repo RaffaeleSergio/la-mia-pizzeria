@@ -12,7 +12,10 @@
     <h1>Le Nostre Pizze</h1>
 
 <a href="/pizze/create" class="btn btn-success mb-3">Crea nuova pizza</a>
-
+<a th:href="@{'/pizze/edit/' + ${pizza.id}}" class="btn btn-warning btn-sm">Modifica</a>
+<form th:action="@{'/pizze/delete/' + ${pizza.id}}" method="post" style="display:inline;">
+    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Sei sicuro di voler eliminare questa pizza?');">Elimina</button>
+</form>
     <table class="table table-striped">
         <thead>
             <tr>
