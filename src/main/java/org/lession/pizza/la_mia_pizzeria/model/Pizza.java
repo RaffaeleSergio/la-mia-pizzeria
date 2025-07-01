@@ -12,11 +12,10 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-
 @Entity
 @Table(name = "pizza")
 public class Pizza {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -36,7 +35,8 @@ public class Pizza {
     @DecimalMin("0.01")
     private BigDecimal prezzo;
 
-    public Pizza() {}
+    public Pizza() {
+    }
 
     // Getter e Setter
     public Integer getId() {
