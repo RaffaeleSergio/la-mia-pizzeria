@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifica Offerta Speciale</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container my-5">
+    <h2>Modifica Offerta Speciale</h2>
+
+    <form th:action="@{/offers/edit}" th:object="${offer}" method="post">
+        <!-- Hidden field con ID e pizza -->
+        <input type="hidden" th:field="*{id}" />
+        <input type="hidden" th:field="*{pizza.id}" />
+
+        <div class="mb-3">
+            <label class="form-label">Titolo</label>
+            <input type="text" class="form-control" th:field="*{title}" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Data inizio</label>
+            <input type="date" class="form-control" th:field="*{startDate}" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Data fine</label>
+            <input type="date" class="form-control" th:field="*{endDate}" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Salva Modifiche</button>
+        <a th:href="@{/pizze/{id}(id=${offer.pizza.id})}" class="btn btn-secondary">Annulla</a>
+    </form>
+</div>
+</body>
+</html>

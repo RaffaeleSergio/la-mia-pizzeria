@@ -1,11 +1,15 @@
 package org.lession.pizza.la_mia_pizzeria.model;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
@@ -37,8 +41,18 @@ public class Pizza {
 
     public Pizza() {
     }
+    @OneToMany(mappedBy = "pizza", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<SpecialOffer> specialOffers = new ArrayList<>();
 
     // Getter e Setter
+
+    public List<SpecialOffer> getSpecialOffers() {
+        return this.specialOffers;
+    }
+
+    public void setSpecialOffers(List<SpecialOffer> specialOffers) {
+        this.specialOffers = specialOffers;
+    }
     public Integer getId() {
         return this.id;
     }
